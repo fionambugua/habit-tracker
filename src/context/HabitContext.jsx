@@ -12,8 +12,14 @@ export function HabitProvider({ children }) {
     setHabits((currentHabits) => currentHabits.filter((habit) => habit.id !== id))
   }
 
+  function toggleHabit(id) {
+    setHabits((currentHabits) => currentHabits.map((habit) => habit.id === id
+    ? {...habit, completed: !habit.completed} :habit
+))
+  }
+
   return (
-    <HabitContext.Provider value={{ habits, addHabits, deleteHabits}}>
+    <HabitContext.Provider value={{ habits, addHabit, deleteHabit, toggleHabit}}>
       {children}
     </HabitContext.Provider>
   );
