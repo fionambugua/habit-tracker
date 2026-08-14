@@ -8,8 +8,12 @@ export function HabitProvider({ children }) {
     setHabits((currentHabits) => [...currentHabits, habit])
   }
 
+  function deleteHabit(id) {
+    setHabits((currentHabits) => currentHabits.filter((habit) => habit.id !== id))
+  }
+
   return (
-    <HabitContext.Provider value={{ habits, addHabits}}>
+    <HabitContext.Provider value={{ habits, addHabits, deleteHabits}}>
       {children}
     </HabitContext.Provider>
   );
