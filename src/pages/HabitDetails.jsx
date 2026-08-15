@@ -9,8 +9,19 @@ function HabitDetails () {
             {habits.map((habit) => (
                 <div key={habit.id}>
                     <h2>{habit.name}</h2>
+                    <p>{habit.completed ? "Completed" : "Not Completed"}</p>
+
+                    <button onClick={() => toggleHabit(habit.id)}>
+                        {habit.completed ? "Mark Incomplete" : "Mark Complete"}
+                    </button>
+
+                    <buttons onClick={() => deleteHabit(habit.id)}>
+                        Delete
+                    </buttons>
                 </div>
             ))}
         </div>
     )
 }
+
+export default HabitDetails;
