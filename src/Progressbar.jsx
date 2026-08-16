@@ -1,10 +1,10 @@
 function ProgressBar({ progress }) {
   return (
     <div>
-      <p>{progress}% complete</p>
+      <p>Today's Progress: {progress}%</p>
 
-      <div>
-        <div style={{ width: `${progress}%` }}></div>
+      <div className="progress-container">
+        <div className="progress-fill" style={{ width: `${progress}%` }}></div>
       </div>
     </div>
   );
