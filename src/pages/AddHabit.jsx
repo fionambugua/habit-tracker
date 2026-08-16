@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useHabits } from "../hooks/UseHabits";
 
-function AddHabit({ onAddHabit }) {
+function AddHabit() {
+  const { addHabit } = useHabits();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [frequency, setFrequency] = useState("");
@@ -22,7 +24,7 @@ function AddHabit({ onAddHabit }) {
       completed: false,
     };
 
-    onAddHabit(newHabit);
+    addHabit(newHabit);
 
     setName("");
     setDescription("");
@@ -50,19 +52,14 @@ function AddHabit({ onAddHabit }) {
         onChange={(e) => setDescription(e.target.value)}
       />
 
-      <select
-        value={frequency}
-        onChange={(e) => setFrequency(e.target.value)}
-      >
+      <select value={frequency} onChange={(e) => setFrequency(e.target.value)}>
         <option value="">Select frequency</option>
         <option value="Daily">Daily</option>
         <option value="Weekly">Weekly</option>
         <option value="Monthly">Monthly</option>
       </select>
 
-      <button type="submit">
-        Add Habit
-      </button>
+      <button type="submit">Add Habit</button>
     </form>
   );
 }

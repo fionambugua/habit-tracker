@@ -8,13 +8,12 @@ function HabitList({ habits, onDelete, onToggle }) {
   return (
     <div className="habit-list">
       {habits.map((habit) => (
-        <HabitCard 
-        key={habit.id}
-         habit={habit} 
-         onDelete={onDelete}
-         onToggle={onToggle}
-         />
-      
+        <HabitCard
+          key={habit.id}
+          habit={habit}
+          onDelete={onDelete}
+          onToggle={onToggle}
+        />
       ))}
     </div>
   );
