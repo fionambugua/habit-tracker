@@ -1,6 +1,6 @@
 import HabitCard from "./HabitCard";
 
-function HabitList({ habits }) {
+function HabitList({ habits, onDelete, onToggle }) {
   if (habits.length === 0) {
     return <p>No habits found.</p>;
   }
@@ -14,6 +14,7 @@ function HabitList({ habits }) {
          onDelete={onDelete}
          onToggle={onToggle}
          />
+      
       ))}
     </div>
   );
