@@ -2,10 +2,10 @@ import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav>
+    <nav className="navbar">
       <h1>HabitTracker</h1>
 
-      <div>
+      <div lassName="navbar-links">
         <NavLink
           to="/"
           className={({ isActive }) => (isActive ? "active-link" : "")}
