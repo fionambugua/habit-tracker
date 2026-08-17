@@ -5,7 +5,7 @@ function Navbar() {
     <nav className="navbar">
       <h1>HabitTracker</h1>
 
-      <div lassName="navbar-links">
+      <div className="navbar-links">
         <NavLink
           to="/"
           className={({ isActive }) => (isActive ? "active-link" : "")}
