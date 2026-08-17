@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useState, usedContext} from "react";
+import { HabitContext } from "../context/HabitContext";
 
-function AddHabit({ onAddHabit }) {
+function AddHabit() {
+  const { addHabit } = useContext(HabitContext);
+  
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [frequency, setFrequency] = useState("");
@@ -22,7 +25,7 @@ function AddHabit({ onAddHabit }) {
       completed: false,
     };
 
-    onAddHabit(newHabit);
+    addHabit(newHabit);
 
     setName("");
     setDescription("");
