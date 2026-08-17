@@ -1,25 +1,51 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+
 export const HabitContext = createContext();
 
 export function HabitProvider({ children }) {
-  const [habits, setHabits] = useState([]);
+  const [habits, setHabits] = useState(() => {
+    const savedHabits = localStorage.getItem("habits");
+
+    return savedHabits ? JSON.parse(savedHabits) : [];
+  });
+
+  // Save habits whenever they change
+  useEffect(() => {
+    localStorage.setItem("habits", JSON.stringify(habits));
+  }, [habits]);
 
   function addHabit(habit) {
-    setHabits((currentHabits) => [...currentHabits, habit])
+    setHabits((currentHabits) => [
+      ...currentHabits,
+      habit,
+    ]);
   }
 
   function deleteHabit(id) {
-    setHabits((currentHabits) => currentHabits.filter((habit) => habit.id !== id))
+    setHabits((currentHabits) =>
+      currentHabits.filter((habit) => habit.id !== id)
+    );
   }
 
   function toggleHabit(id) {
-    setHabits((currentHabits) => currentHabits.map((habit) => habit.id === id
-    ? {...habit, completed: !habit.completed} :habit
-))
+    setHabits((currentHabits) =>
+      currentHabits.map((habit) =>
+        habit.id === id
+          ? { ...habit, completed: !habit.completed }
+          : habit
+      )
+    );
   }
 
   return (
-    <HabitContext.Provider value={{ habits, addHabit, deleteHabit, toggleHabit}}>
+    <HabitContext.Provider
+      value={{
+        habits,
+        addHabit,
+        deleteHabit,
+        toggleHabit,
+      }}
+    >
       {children}
     </HabitContext.Provider>
   );
