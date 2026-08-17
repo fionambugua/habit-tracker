@@ -1,0 +1,18 @@
+{
+  "habits": [
+    {
+      "id": 1786995945687,
+      "name": "land",
+      "description": "distribution",
+      "frequency": "Daily",
+      "completed": false
+    },
+    {
+      "id": 1786997901292,
+      "name": "drink",
+      "description": "water after running",
+      "frequency": "Daily",
+      "completed": false
+    }
+  ]
+}

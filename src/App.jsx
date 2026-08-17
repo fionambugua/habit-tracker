@@ -19,7 +19,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-
         <Route path="/habits" element={<Habit />} />
         <Route path="/habits/new" element={<AddHabit />} />
         <Route path="/habits/:id" element={<HabitDetails />} />
